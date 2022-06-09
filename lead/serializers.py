@@ -22,7 +22,7 @@ class LeadSerializer(serializers.ModelSerializer):
             'confidence',
             'estimated_value',
             'status',
-            'assigned_to'
+            'assigned_to',
             'priority',
             'created_at',
             'modified_at',
