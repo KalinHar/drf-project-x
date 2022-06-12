@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.views import APIView
 
 from django.http import Http404
@@ -12,9 +13,13 @@ from .serializers import ClientSerializer, NoteSerializer
 from team.models import Team
 from lead.models import Lead
 
+class ClientPagination(PageNumberPagination):
+    page_size = 2
+
 class ClientViewSet(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
     queryset = Client.objects.all()
+    pagination_class = ClientPagination
 
     def get_queryset(self):
         team = Team.objects.filter(members__in=[self.request.user]).first()
