@@ -9,7 +9,7 @@ from .serializers import LeadSerializer
 from team.models import Team
 
 class LeadPagination(PageNumberPagination):
-    page_size = 2
+    page_size = 10
 
 class LeadViewSet(viewsets.ModelViewSet):
     serializer_class = LeadSerializer
