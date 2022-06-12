@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 
 from django.http import Http404
 from django.contrib.auth.models import User
-from .models import Team
+from .models import Team, Plan
 from .serializers import TeamSerializer, UserSerializer
 
 class TeamViewSet(viewsets.ModelViewSet):
@@ -60,3 +60,17 @@ def add_member(request):
     team.save()
 
     return Response()
+
+@api_view(['POST'])
+def upgrade_plan(request):
+    team = Team.objects.filter(members__in=[request.user]).first()
+    plan_name = request.data['plan']
+
+    plan = Plan.objects.get(name=plan_name)
+    
+    team.plan = plan
+    team.save()
+
+    serializer = TeamSerializer(team)
+
+    return Response(serializer.data)
