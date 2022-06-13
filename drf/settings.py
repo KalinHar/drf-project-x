@@ -24,8 +24,14 @@ SECRET_KEY = 'django-insecure-ytknl7n2pt2)ug0c=(@*1r2!tq*-sr4j&t9am0uop9%io#1o5t
 
 STRIPE_PUB_KEY = 'pk_test_51L4MoKJ8Rx2yNgV7RcqJFLYVLQivKlolNgK6CTrQVVOQyOvTg4tkcmg9a8uakT5nGCAA9hGwBUhhDyokkVICYpO500Cj1damAx'
 STRIPE_SECRET_KEY = 'sk_test_51L4MoKJ8Rx2yNgV7IwBwr4swdbs9noMz5Jiw9GETsHC8RsmmBBY2VYxnqca0iwt1GlSbKtn4IjGDvoY7zcVGdJCa00i2BUVhNS'
+
 STRIPE_PRICE_ID_SMALL = 'price_1LA7j4J8Rx2yNgV7Vsi2SC7h'
 STRIPE_PRICE_ID_BIG = 'price_1LA7jVJ8Rx2yNgV7rSZBR6hU'
+
+STRIPE_WEBHOOK_KEY = 'whsec_f83795a4f5f255c2d903bd668990d275dd76d5ae0eb76254c8960285d65cd9eb'
+
+FRONTEND_WEBSITE_SUCCESS_URL = 'http://localhost:8080/dashboard/team/plans-thanks'
+FRONTEND_WEBSITE_CANCEL_URL = 'http://localhost:8080/dashboard/team/plans'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
